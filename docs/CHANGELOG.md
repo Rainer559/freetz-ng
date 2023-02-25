@@ -4,6 +4,7 @@ Latest changes
 
 - Freetz-NG
   * [devel](#devel)
+  * [ng23020](#ng23020)
   * [ng22100](#ng22100)
   * [ng22070](#ng22070)
   * [ng22040](#ng22040)
@@ -42,6 +43,28 @@ Latest changes
 
 ### devel
 
+ - Host tools:
+   * kconfig 6.2
+   * patchelf 0.14.5/0.15.0
+   * precompiled host-tools 2023-02-20
+
+ - Patches:
+   * Various Fritzos 7.5 related changes
+
+ - Packages:
+   * Curl 7.88.1
+   * Fontconfig 2.14.2
+   * OpenVPN 2.4.12/2.5.9/2.6.0
+   * Sudo 1.9.13p1
+
+ - Libraries:
+   * glib2 2.32.4/2.75.3
+
+ - Firmware updates:
+   * Please see [FIRMWARES](FIRMWARES.md) for the list of currently supported devices and firmwares.
+
+### ng23020
+
  - Known problems:
    * Loading build kernel modules may work or do not. You'll notice.
 
@@ -53,8 +76,9 @@ Latest changes
  - Host tools:
    * busybox 1.36.0
    * cmake 3.25.2
-   * fakeroot 1.30.1
+   * fakeroot 1.31
    * fastjar 0.98
+   * genext2fs 1.5.0-3b99f4a4
    * gperf 3.1
    * kconfig 6.1
    * meson 1.0.0
@@ -62,10 +86,10 @@ Latest changes
    * ncurses 6.4
    * ninja 1.11.1
    * patchelf 0.14.5/0.17.2
-   * precompiled host-tools 2023-01-30
+   * precompiled host-tools 2023-02-13
    * prelink 20130503
    * pseudo 1.9.0 oe-core c9670c2
-   * python 3.11.1
+   * python 3.11.2
    * sed 4.9
    * sfk 1.9.8.2
    * u-boot 2023.01
@@ -85,15 +109,16 @@ Latest changes
    * CA-bundle 2023-01-10
    * CCID 1.5.1
    * classpath 0.99
-   * Curl 7.87.0
+   * Curl 7.88.0
    * dehydrated 0.7.1 (letsencrypt)
    * DejaVu Fonts TTF 2.37
-   * Dnsmasq 2.80/2.88
+   * Dnsmasq 2.80/2.89
    * Dropbear 2022.83
    * Fontconfig 2.14.1
    * getdns 1.7.3
-   * Git 2.39.1
+   * Git 2.39.2
    * HAProxy 2.6.8
+   * htop 1.0.3/2.3.2
    * htpdate 1.3.7
    * IGMPproxy 0.4
    * ImageMagick 7.1.0-57
@@ -101,13 +126,13 @@ Latest changes
    * Knock 0.8
    * libffi 3.4.4
    * libpcap 1.1.1/1.10.3
-   * Lighttpd 1.4.68
+   * Lighttpd 1.4.69
    * Lua 5.1.5/5.4.4
    * Nano 7.2
    * ncurses 6.4
    * ncursesw 6.4
-   * OpenSSH 9.1p1
-   * OpenSSL 0.9.8zh/1.0.2u/1.1.1s/3.0.7
+   * OpenSSH 9.2p1
+   * OpenSSL 0.9.8zh/1.0.2u/1.1.1t/3.0.8
    * OpenVPN 2.4.12/2.5.8/2.6.0
    * PCSC-lite 1.9.9
    * RPCBind 1.2.6
@@ -123,11 +148,11 @@ Latest changes
    * XZ Utils 5.4.1
 
  - Libraries:
-   * cairo 1.17.4
+   * cairo 1.17.8
    * expat 2.5.0
    * fribidi 1.0.12
    * glib2 2.32.4/2.75.2
-   * harfbuzz 6.0.0
+   * harfbuzz 7.0.0
    * libcap-ng 0.8.3
    * libctlmgr 1.0
    * libev 4.33
@@ -145,7 +170,7 @@ Latest changes
    * pixman 0.42.2
 
  - Firmware updates:
-   * Please see [FIRMWARES](FIRMWARES.md) for the list of currently supported devices and firmwares.
+   * Please see [FIRMWARES](https://github.com/Freetz-NG/freetz-ng/blob/ng23020/docs/FIRMWARES.md) for the list of supported devices and firmwares.
 
 ### ng22100
 
@@ -196,7 +221,7 @@ Latest changes
    * Screen 4.9.0
    * SQLite 3.39.4
    * strace 4.9/5.0/5.19
-   * Stunnel 5.67
+   * Stunnel 5.68
    * Tor 0.4.7.9
    * uClibc-ng 1.0.42
    * Unbound 1.16.6
@@ -254,7 +279,7 @@ Latest changes
    * LCD4linux 9d4e4b7-git
    * lighttpd 1.4.65
    * ltrace 0.7.3checkpoint1-git
-   * mc (Midnight Commander) 4.8.28
+   * mc (Midnight Commander) 4.8.29
    * mini-snmpd 1.6
    * MTR 0.80/0.95
    * Nano 6.3
@@ -264,13 +289,13 @@ Latest changes
    * OpenVPN 2.4.12/2.5.7
    * PCSC-lite 1.9.8
    * pcre2 10.40
-   * Privoxy 3.0.33
+   * Privoxy 3.0.34
    * radvd 1.9.3/2.19
    * ser2net 3.5.4
    * Smartmontools 7.3
    * strace 4.9/5.0/5.18
    * Stunnel 5.64
-   * Sudo 1.9.11p3
+   * Sudo 1.9.13
    * SQLite 3.39.0
    * tcpdump 4.1.1/4.99.1
    * tmux 3.3a

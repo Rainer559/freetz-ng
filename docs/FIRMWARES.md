@@ -102,8 +102,10 @@ Currently supported devices and firmwares
   - 155.07.01 rev61489 {ALL}
   - 155.07.14 rev73181 {ALL} [MESH18 NL4]
   - 155.07.29 rev92647 {ALL} [PSQ19P2NL4]
+  - 155.07.39 rev101165 {ALL} [MOVE21] (Labor)
 * __Fritz!Box 4060__
   - 261.07.30 rev95826 {ALL} [PSQ19P2NL4]
+  - 261.07.39 rev101546 {ALL} [MOVE21] (Labor)
 
 ### Fritz!Box Fon (50xx/51xx)
 
@@ -139,6 +141,7 @@ Currently supported devices and firmwares
   - 257.07.39 rev102667 {ALL} [MOVE21] (Labor)
 * __Fritz!Box 5590 Fiber__
   - 272.07.30 rev101793 {ALL} [PSQ19P2NL4]
+  - 272.07.39 rev102864 {ALL} [MOVE21] (Labor)
 
 ### Fritz!Box Cable (64xx/65xx/66xx)
 
@@ -164,7 +167,7 @@ Currently supported devices and firmwares
   - 161.07.13 rev75441 {GER} [MESH18 NL3]
   - 161.07.22 rev84582 {GER} [PSQ19]
   - 161.07.29 rev92035 {GER} [PSQ19P2NL4]
-  - 161.07.39 rev00000 {GER} [MOVE21] (Labor)
+  - 161.07.50 rev103103 {GER} [MOVE21]
 * __Fritz!Box 6660 Cable__
   - 252.07.15 rev78740 {GER} [6660 FCS]
   - 252.07.24 rev85910 {GER} [PSQ19]
@@ -372,7 +375,7 @@ Currently supported devices and firmwares
   - 113.07.12 rev70401 {INT} [MESH18 NL2]
   - 113.07.21 rev81779 {ALL} [PSQ19]
   - 113.07.29 rev92201 {ALL} [PSQ19P2NL4]
-  - 113.07.51 rev102849 {ALL} [MOVE21NL1] (Labor)
+  - 113.07.51 rev103186 {ALL} [MOVE21NL1] (Labor)
 
 ### Fritz!Box Fon WLAN (75xx)
 
@@ -431,8 +434,10 @@ Currently supported devices and firmwares
   - 167.07.15 rev75887 {INT} [MESH18 NL2]
   - 167.07.21 rev82361 {ALL} [PSQ19]
   - 167.07.31 rev95687 {ALL} [PSQ19P2NL4]
+  - 167.07.50 rev103079 {ALL} [MOVE21]
 * __Fritz!Box Fon WLAN 7583 VDSL (UNTESTED)__
   - 260.07.31 rev95688 {ALL} [PSQ19P2NL4]
+  - 260.07.50 rev103081 {ALL} [MOVE21]
 
 * __Fritz!Box Fon WLAN 7590__
   - 154.06.86 rev45533 {GER}
@@ -467,7 +472,7 @@ Currently supported devices and firmwares
 * __Fritz!Powerline 1240E (UNTESTED)__
   - 150.06.92 rev47432 {ALL}
   - 150.07.01 rev63180 {ALL}
-  - 150.07.14 rev93759 {ALL} [WU21 MESH18]
+  - 150.07.15 rev103167 {ALL} [WU22 MESH18]
 * __Fritz!Powerline 1260E__
   - 157.07.01 rev63181 {ALL}
   - 157.07.12 rev70670 {ALL} [MESH18 NL2]
@@ -520,7 +525,7 @@ Currently supported devices and firmwares
   - 174.07.29 rev93268 {ALL} [PSQ19P2NL4]
   - 174.07.39 rev00000 {ALL} [MOVE21] (Labor)
 * __Fritz!Repeater 3000 AX (UNTESTED)__
-  - 270.07.41 rev101080 {ALL} [MOVE21] (Inhaus)
+  - 270.07.41 rev100749 {ALL} [MOVE21]
 * __Fritz!Repeater 6000__
   - 253.07.30 rev98407 {ALL} [PSQ19P2NL4]
   - 253.07.39 rev00000 {ALL} [MOVE21] (Labor)
