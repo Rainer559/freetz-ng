@@ -1,17 +1,17 @@
-$(call TOOLS_INIT, 1.0.0)
+$(call TOOLS_INIT, 1.2.0)
 $(PKG)_SOURCE:=meson-$($(PKG)_VERSION).tar.gz
-$(PKG)_HASH:=aa50a4ba4557c25e7d48446abfde857957dcdf58385fffbe670ba0e8efacce05
+$(PKG)_HASH:=1c0b634fe6b6a7072e398647f1bf392048577068a5c92ae44d04085dab0ded6f
 $(PKG)_SITE:=https://github.com/mesonbuild/meson/releases/download/$($(PKG)_VERSION)
 ### WEBSITE:=https://mesonbuild.com/
 ### MANPAGE:=https://mesonbuild.com/
 ### CHANGES:=https://github.com/mesonbuild/meson/releases
 ### CVSREPO:=https://github.com/mesonbuild/meson
 
-$(PKG)_BINARY:=$($(PKG)_DIR)/meson.pyz
-$(PKG)_TARGET_BINARY:=$(TOOLS_DIR)/meson
-
 $(PKG)_DEPENDS_ON+=python3-host
 $(PKG)_DEPENDS_ON+=ninja-host
+
+$(PKG)_BINARY:=$($(PKG)_DIR)/meson.pyz
+$(PKG)_TARGET_BINARY:=$(TOOLS_DIR)/meson
 
 
 $(TOOLS_SOURCE_DOWNLOAD)
@@ -38,6 +38,6 @@ $(pkg)-dirclean:
 	$(RM) -r $(MESON_HOST_DIR)
 
 $(pkg)-distclean: $(pkg)-dirclean
-	$(RM) -r $(MESON_HOST_TARGET_BINARY) $(MESON_HOST_TARGET_EGGDIR)
+	$(RM) -r $(MESON_HOST_TARGET_BINARY)
 
 $(TOOLS_FINISH)

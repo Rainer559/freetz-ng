@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /usr/bin/env bash
 #by cuma, 2019
 
 # this generates config/.img/*.in
@@ -606,6 +606,11 @@ determine_() {
 	X="%"
 	[ -e "$unpacked/usr/bin/kmod" ] && X="available" && in_b "FREETZ_AVM_HAS_KMOD"
 	[ $DOSHOW -ge 2 ] && outp "kmod" "$X"
+
+	#SVCTL
+	X="%"
+	[ -e "$unpacked/bin/svctl" ] && X="available" && in_b "FREETZ_AVM_HAS_SVCTL"
+	[ $DOSHOW -ge 2 ] && outp "svctl" "$X"
 
 
 	#MINID

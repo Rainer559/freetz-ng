@@ -32,12 +32,12 @@ envira:
 ifneq ($(shell umask),$(ENVIRA_UMASK))
 ifneq ($(shell grep -q "$$($(ENVIRA_REV_TOOL))" $(ENVIRA_LAST_REV) 2>/dev/null && echo y),y)
 	@echo -n "Fixing checkout permissions " && \
-	echo -n "." && find .     -maxdepth  0 -type d               | xargs chmod $(ENVIRA_MODE_EXEC) && \
-	echo -n "." && find .     -maxdepth  1 -type f   -executable | xargs chmod $(ENVIRA_MODE_EXEC) && \
-	echo -n "." && find .     -maxdepth  1 -type f ! -executable | xargs chmod $(ENVIRA_MODE_FILE) && \
-	echo -n "." && find $(ENVIRA_CVS_DIRS) -type d               | xargs chmod $(ENVIRA_MODE_EXEC) && \
-	echo -n "." && find $(ENVIRA_CVS_DIRS) -type f   -executable | xargs chmod $(ENVIRA_MODE_EXEC) && \
-	echo -n "." && find $(ENVIRA_CVS_DIRS) -type f ! -executable | xargs chmod $(ENVIRA_MODE_FILE) && \
+	echo -n "." && find .     -maxdepth  0 -type d               -print0 | xargs -0 chmod $(ENVIRA_MODE_EXEC) -- && \
+	echo -n "." && find .     -maxdepth  1 -type f   -executable -print0 | xargs -0 chmod $(ENVIRA_MODE_EXEC) -- && \
+	echo -n "." && find .     -maxdepth  1 -type f ! -executable -print0 | xargs -0 chmod $(ENVIRA_MODE_FILE) -- && \
+	echo -n "." && find $(ENVIRA_CVS_DIRS) -type d               -print0 | xargs -0 chmod $(ENVIRA_MODE_EXEC) -- && \
+	echo -n "." && find $(ENVIRA_CVS_DIRS) -type f   -executable -print0 | xargs -0 chmod $(ENVIRA_MODE_EXEC) -- && \
+	echo -n "." && find $(ENVIRA_CVS_DIRS) -type f ! -executable -print0 | xargs -0 chmod $(ENVIRA_MODE_FILE) -- && \
 	echo " done." && \
 	$(ENVIRA_REV_TOOL) > $(ENVIRA_LAST_REV)
 endif
@@ -58,7 +58,7 @@ CONFIG_IN_CACHE=config/.cache.in
 CONFIG_IN_CUSTOM=config/custom.in
 CONFIG=tools/kconfig
 
-SHELL:=/bin/bash
+SHELL:=bash
 IMAGE:=
 LOCALIP:=
 RECOVER:=
@@ -98,13 +98,11 @@ PATCHELF:=patchelf
 PYTHON3=python3
 MESON=meson
 CMAKE=cmake
-NINJA1=ninja
+NINJA=ninja
 MAKE1=make
 ifeq ($(FREETZ_JLEVEL),0)
-NINJA=ninja -j$(shell echo $$(( $$(nproc || echo 1) +1 )) )
 MAKE=make -j$(shell echo $$(( $$(nproc || echo 1) +1 )) )
 else
-NINJA=ninja -j$(FREETZ_JLEVEL)
 MAKE=make -j$(FREETZ_JLEVEL)
 endif
 
@@ -184,7 +182,7 @@ endif
 ifneq ($(findstring menuconfig,$(MAKECMDGOALS)),menuconfig)
 ifneq ($(NO_PREREQ_CHECK),y)
 ifneq (OK,$(shell $(CHECK_PREREQ_TOOL) check >&2 && echo OK))
-$(error Some build prerequisites are missing! See '.prerequisites' for why. Please install the missing packages with 'tools/prerequisites install'. See https://freetz-ng.github.io/freetz-ng/PREREQUISITES for installation hints)
+$(error Some prerequisites are missing! Install the missing packages with 'tools/prerequisites install' or check https://freetz-ng.github.io/freetz-ng/PREREQUISITES for hints. See '.prerequisites' for why)
 endif
 endif
 endif
@@ -305,6 +303,7 @@ TOOLS_DISTCLEAN:=$(patsubst %,%-distclean,$(TOOLS))
 TOOLS_SOURCE:=$(patsubst %,%-source,$(TOOLS))
 TOOLS_PRECOMPILED:=$(patsubst %,%-precompiled,$(TOOLS))
 TOOLS_RECOMPILE:=$(patsubst %,%-recompile,$(TOOLS))
+TOOLS_FIXHARDCODED:=$(patsubst %,%-fixhardcoded,$(TOOLS))
 TOOLS_AUTOFIX:=$(patsubst %,%-autofix,$(TOOLS))
 
 $(DL_DIR):
@@ -463,6 +462,8 @@ $(filter $(TOOLS_BUILD_LOCAL),$(TOOLS)): % : %-precompiled
 $(patsubst %,%-autofix,$(TOOLS)): %-autofix : %-dirclean
 	$(MAKE) AUTO_FIX_PATCHES=y $*-unpacked
 $(patsubst %,%-recompile,$(TOOLS)): %-recompile : %-dirclean %-precompiled
+
+$(patsubst %,%-fixhardcoded,$(TOOLS)): %-fixhardcoded : 
 
 tools: $(DL_DIR) $(SOURCE_DIR_ROOT) $(filter-out $(TOOLS_CONDITIONAL),$(TOOLS))
 tools-all: $(DL_DIR) $(SOURCE_DIR_ROOT) $(filter-out $(TOOLS_TARXZBUNDLE),$(TOOLS))
@@ -675,7 +676,7 @@ help:
 .PHONY: all world step $(KCONFIG_TARGETS) config-cache config-cache-clean config-cache-refresh tools recover \
 	config-clean-deps-modules config-clean-deps-libs config-clean-deps-busybox config-clean-deps-terminfo config-clean-deps config-clean-deps-keep-busybox \
 	cacheclean clean dirclean distclean common-cacheclean common-clean common-dirclean common-distclean release \
-	$(TOOLS) $(TOOLS_CACHECLEAN) $(TOOLS_CLEAN) $(TOOLS_DIRCLEAN) $(TOOLS_DISTCLEAN) $(TOOLS_SOURCE) $(TOOLS_PRECOMPILED) $(TOOLS_RECOMPILE) $(TOOLS_AUTOFIX) \
+	$(TOOLS) $(TOOLS_CACHECLEAN) $(TOOLS_CLEAN) $(TOOLS_DIRCLEAN) $(TOOLS_DISTCLEAN) $(TOOLS_SOURCE) $(TOOLS_PRECOMPILED) $(TOOLS_RECOMPILE) $(TOOLS_FIXHARDCODED) $(TOOLS_AUTOFIX) \
 	clear-echo-temporary check-dot-config-uptodateness
 
 endif # Envira

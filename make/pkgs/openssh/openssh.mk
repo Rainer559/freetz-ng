@@ -1,6 +1,6 @@
-$(call PKG_INIT_BIN, 9.2p1)
+$(call PKG_INIT_BIN, 9.3p2)
 $(PKG)_SOURCE:=$(pkg)-$($(PKG)_VERSION).tar.gz
-$(PKG)_HASH:=3f66dbf1655fb45f50e1c56da62ab01218c228807b21338d634ebcdf9d71cf46
+$(PKG)_HASH:=200ebe147f6cb3f101fd0cdf9e02442af7ddca298dffd9f456878e7ccac676e8
 $(PKG)_SITE:=https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable,ftp://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable
 ### WEBSITE:=https://www.openssh.com/
 ### MANPAGE:=https://www.openssh.com/manual.html
